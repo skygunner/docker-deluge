@@ -5,6 +5,8 @@ docker-build-master:
   services:
     - docker:dind
   before_script:
+    - echo "nameserver 84.200.69.80" > /etc/resolv.conf
+    - echo "nameserver 84.200.70.40" >> /etc/resolv.conf
     - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
   script:
     - docker build --pull --tag "$CI_REGISTRY_IMAGE" .
