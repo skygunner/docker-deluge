@@ -68,6 +68,7 @@ RUN apk update && \
     make install-strip && \
     git clone git://deluge-torrent.org/deluge.git /tmp/deluge && \
     cd /tmp/deluge && \
+    git checkout tags/deluge-2.0.3 && \
     pip3 install --no-cache-dir --upgrade \
         wheel \
         pip && \
